@@ -29,6 +29,7 @@
             bottom: 10px;
             right: 10%;
             width: 150px;
+            transition: opacity 0.5s, transform 0.5s;
         }
         #burger {
             position: absolute;
@@ -39,8 +40,8 @@
         }
         #explosion {
             position: absolute;
-            width: 100px;
-            height: 100px;
+            width: 200px;
+            height: 200px;
             background-color: orange;
             border-radius: 50%;
             display: none;
@@ -99,6 +100,7 @@
     <script>
         const burger = document.getElementById('burger');
         const explosion = document.getElementById('explosion');
+        const teto = document.getElementById('teto');
 
         function throwBurger() {
             burger.style.display = 'block';
@@ -114,8 +116,10 @@
                 explosion.style.display = 'block';
                 explosion.style.animation = 'explode 1s forwards';
 
-                // Hide burger once explosion happens
+                // Hide burger and make Teto disappear
                 burger.style.display = 'none';
+                teto.style.opacity = '0';
+                teto.style.transform = 'scale(0)'; // Make Teto shrink/disappear
             }, 1500); // Trigger explosion after the burger reaches the target
         }
     </script>
